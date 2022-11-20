@@ -87,13 +87,13 @@ namespace Matei_Claudiu_Lab6.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExpenses(int id)
         {
-            var expenses = await _context.Expenses.FindAsync(id);
+            var expenses = await _context.ExpensesDTO.FindAsync(id);
             if (expenses == null)
             {
                 return NotFound();
             }
 
-            _context.Expenses.Remove(expenses);
+            _context.ExpensesDTO.Remove(expenses);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +101,7 @@ namespace Matei_Claudiu_Lab6.Controllers
 
         private bool ExpensesExists(int id)
         {
-            return _context.Expenses.Any(e => e.Id == id);
+            return _context.ExpensesDTO.Any(e => e.Id == id);
         }
     }
 }
