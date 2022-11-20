@@ -9,5 +9,6 @@ namespace Matei_Claudiu_Lab6.Models
         }
 
         public DbSet<Expenses> Expenses { get; set; }
+        public DbSet<ExpensesDTO> ExpensesDTO { get; set; }
     }
 }
